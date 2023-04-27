@@ -25,8 +25,13 @@ import UsersList from '../../components/UsersList.vue';
 
 export default {
     components: { Header, UsersList },
-    async asyncData({ store }) {
-      await store.dispatch('fetchUsers')
+    mounted() {
+     this.fetchUsers()
     },
+    methods: {
+      async fetchUsers() {
+        await this.$store.dispatch('fetchUsers')
+      }
+    }
 };
 </script>
